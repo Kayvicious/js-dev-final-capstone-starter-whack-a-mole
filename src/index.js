@@ -70,14 +70,12 @@ function chooseHole(holes) {
   // TODO: Write your code here.
   const index = randomInteger(0, 8);
   const hole = holes[index];
-  let lasthole;
 
   if (hole === lastHole) {
-    chooseHole(holes);
-  } else {
-    lastHole = hole;
-    return hole;
-  }
+    return chooseHole(holes);
+  } 
+  lastHole = hole;
+  return hole;
 }
 
 /**
@@ -170,8 +168,8 @@ function toggleVisibility(hole){
 function updateScore() {
   // TODO: Write your code here
   //Increment points
-  points += 1;
-  //Assign updating points to Score card.
+  points++;
+  //Assign updated points to Score card.
   score.textContent = points;
   return points;
 }
@@ -227,7 +225,7 @@ function startTimer() {
 */
 function whack(event) {
   // TODO: Write your code here.
-  updateScore()
+  updateScore();
   return points;
 }
 
@@ -238,11 +236,9 @@ function whack(event) {
 */
 function setEventListeners(){
   // TODO: Write your code here
-  moles.forEach((mole) => {
-    mole.addEventListener("click", (event) => {
-      whack(event);
-    })
-  })
+  moles.forEach(
+    mole => mole.addEventListener("click", whack)
+  );
   return moles;
 }
 
@@ -278,6 +274,8 @@ function stopGame(){
 function startGame(){
   setDuration(10);
   showUp();
+  startTimer();
+  setEventListeners();
   return "game started";
 }
 
