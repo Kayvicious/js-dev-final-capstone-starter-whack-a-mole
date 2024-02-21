@@ -224,7 +224,7 @@ function startTimer() {
 */
 function whack(event) {
   // TODO: Write your code here.
-  // call updateScore()
+  updateScore()
   return points;
 }
 
@@ -235,7 +235,11 @@ function whack(event) {
 */
 function setEventListeners(){
   // TODO: Write your code here
-
+  moles.forEach((mole) => {
+    mole.addEventListener("click", (event) => {
+      whack(event);
+    })
+  })
   return moles;
 }
 
