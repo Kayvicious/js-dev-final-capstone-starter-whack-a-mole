@@ -103,10 +103,10 @@ function chooseHole(holes) {
 function gameOver() {
   // TODO: Write your code here
   if (time > 0) {
-    timeoutID = showUp();
+    let timeoutID = showUp();
     return timeoutID;
   } else {
-    gameStopped = stopGame();
+    let gameStopped = stopGame();
     return gameStopped;
   }
 }
@@ -200,7 +200,7 @@ function updateTimer() {
   // hint: this code is provided to you in the instructions.
   if (time > 0) {
     time -= 1
-    timerDisplay.textContent = time
+    timerDisplay.textContent = time;
   }
   return time;
 }
