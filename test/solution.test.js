@@ -1,6 +1,10 @@
 jest.setTimeout(30000);
+const puppeteer = require('puppeteer');
 const baseURL = process.env.TEST_BASE_URL || "http://localhost:3000";
 
+
+//let browser; // Declare browser variable in the outer scope
+//let page;    // Declare page variable in the outer scope
 const msgs = [];
 // Show logs from the page inside labeled container.
 const onPageConsole = (msg) => {
@@ -13,6 +17,10 @@ const onPageConsole = (msg) => {
 describe("US-01: Basic Game Structure", () => {
 
   beforeEach(async () => {
+    const browser = await puppeteer.launch({
+      headless: "true" // Use the new Headless mode
+    });
+    page = await browser.newPage();
     page.on("console", onPageConsole);
     page.on("pageerror", (err) => console.log(err));
     await page.goto(baseURL, { waitUntil: "load" });
@@ -304,4 +312,9 @@ describe("US-05: startTimer() and updateTimer()", () => {
     });
     expect(startGame).toContain("startTimer()");
   });
+
+  //afterEach(async () => {
+  //  await browser.close(); // Close the browser after each test
+  //});
+
 });
