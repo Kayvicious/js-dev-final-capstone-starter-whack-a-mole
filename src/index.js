@@ -139,6 +139,7 @@ function showAndHide(hole, delay){
     // TODO: call the toggleVisibility function so that it removes the 'show' class when the timer times out.
     toggleVisibility(hole);
     gameOver();
+    clearScore();
   }, delay); // TODO: change the setTimeout delay to the one provided as a parameter
   return timeoutID;
 }
@@ -262,7 +263,7 @@ function setDuration(duration) {
 function stopGame(){
   // stopAudio(song);  //optional
   clearInterval(timer);
-  clearScore();
+  //clearScore();
   return "game stopped";
 }
 
