@@ -1,5 +1,6 @@
 const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
+const title = document.querySelector("#title");
 const startButton = document.querySelector('#start');
 // TODO: Add the missing query selectors:
 const score = document.querySelector("#score"); // Use querySelector() to get the score element
@@ -263,6 +264,7 @@ function stopGame(){
   // stopAudio(song);  //optional
   clearInterval(timer);
   clearScore();
+  title.innerText = "game stopped";
   return "game stopped";
 }
 
