@@ -238,8 +238,8 @@ function whack(event) {
 function setEventListeners(){
   // TODO: Write your code here
   moles.forEach(
-    mole => mole.addEventListener("click", whack)
-  );
+    mole => mole.addEventListener("click", whack), {once : true}
+  );  
   return moles;
 }
 
@@ -263,7 +263,7 @@ function setDuration(duration) {
 function stopGame(){
   // stopAudio(song);  //optional
   clearInterval(timer);
-  clearScore();
+  //clearScore();
   title.innerText = "game stopped";
   return "game stopped";
 }
@@ -275,11 +275,12 @@ function stopGame(){
 *
 */
 function startGame(){
-  setDuration(10);
   clearScore();
+  setDuration(10);
   showUp();
   startTimer();
   setEventListeners();
+  title.innerText = "game started";
   return "game started";
 }
 
