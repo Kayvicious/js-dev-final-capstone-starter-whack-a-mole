@@ -6,7 +6,7 @@ const startButton = document.querySelector('#start');
 const score = document.querySelector("#score"); // Use querySelector() to get the score element
 const timerDisplay = document.querySelector("#timer"); // use querySelector() to get the timer element.
 const audioHit = new Audio("../assets/hit.mp3");
-const song = new Audio("../assests/molesong.mp3");
+const song = new Audio("../assets/molesong.mp3");
 
 let time = 0;
 let timer;
